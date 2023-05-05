@@ -1,0 +1,25 @@
+<a routerLink="/">Go home</a>
+
+<h1>Purchases</h1>
+
+<!-- <ul>
+  <li *ngFor="let purchase of purchases">
+    Price: {{ purchase.price }}
+    <br>
+    Store: {{ stores.find(store => store.id === purchase.storeId)?.name }}
+    <br>
+    Tag: {{ tags.find(tag => tag.id === purchase.tagId)?.name }}
+  </li>
+</ul> -->
+
+<ul>
+  <li *ngFor="let purchase of purchases">
+    Id: {{ purchase.id }}
+    <br>
+    Price: {{ purchase.price }}
+    <br>
+    Store: {{ purchase.storeId }}
+    <br>
+    Tag: {{ purchase.tagId }}
+  </li>
+</ul>
