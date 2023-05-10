@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { DataStorageService } from './services/data-storage.service';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
     AppComponent,
     AddPurchaseComponent,
     HomeComponent,
-    PurchaseListComponent
+    PurchaseListComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,10 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [
     { provide: 'LOCAL_STORAGE', useValue: window.localStorage },

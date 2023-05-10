@@ -2,8 +2,8 @@ export interface IPurchase {
   id: number;
   date: Date;
   price: number;
-  storeId: number;
-  tagId: number;
+  storeName: string;
+  tagName: string;
 }
 
 export interface IStore {

@@ -1,22 +1,28 @@
-<a routerLink="/">Go home</a>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="elementForm">
+    <input placeholder="Price" matInput type="number" min="0.01" formControlName="price">
+  </mat-form-field>
 
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="price">Price</label>
-    <input id="price" name="price" type="number"  formControlName="price">
-  </div>
+  <mat-form-field class="elementForm">
+    <input type="text" placeholder="Store" aria-label="Text" matInput formControlName="store" [matAutocomplete]="auto1">
+    <mat-autocomplete #auto1="matAutocomplete">
+      <mat-option *ngFor="let option of filteredStoreOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 
-  <div>
-    <label for="store">Store</label>
-    <input id="store" name="store" type="text"  formControlName="store">
-
-  </div>
-
-  <div>
-    <label for="tag">Tag</label>
-    <input id="tag" name="tag" type="text"  formControlName="tag">
-
-  </div>
+  <mat-form-field class="elementForm">
+    <input type="text" placeholder="Tag" aria-label="Text" matInput formControlName="tag" [matAutocomplete]="auto2">
+    <mat-autocomplete #auto2="matAutocomplete">
+      <mat-option *ngFor="let option of filteredTagOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 
   <button type="submit" [disabled]="!profileForm.valid">Add Purchase</button>
 </form>
+<div class="buttonDiv">
+<a class="backButton" routerLink="/">BACK</a>
+</div>

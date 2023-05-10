@@ -1,0 +1,99 @@
+.col {
+    columns: 2;
+    margin: 0;
+    padding: 5px;
+}
+
+.col2 {
+    columns: 1;
+    margin: auto;
+    width: 30%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    background-color: lightgray;
+    box-shadow: -2px 4px;
+    break-inside: avoid-column;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.colbox {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-color: transparent;
+    background: transparent;
+    color: transparent;
+}
+
+.title {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    padding-top: 40px;
+    padding-left: 0;
+    font-size: 45px;
+}
+
+.backButton {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: green;
+}
+
+.buttonDiv {
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+}
+
+nav {
+    height: 450px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+nav ul {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    
+}
+.selectorContainer{
+    text-align: center;
+}
+
+.filterButton {
+    text-decoration: none;
+    font-size: large;
+    background-color: #31B0D5;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+}

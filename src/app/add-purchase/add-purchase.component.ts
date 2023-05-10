@@ -2,26 +2,48 @@ import { Component, OnInit } from '@angular/core';
 import { IPurchase, IStore, ITag } from '../../shared/models/models';
 import { DataStorageService } from '../services/data-storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-purchase',
   templateUrl: './add-purchase.component.html',
   styleUrls: ['./add-purchase.component.scss']
 })
 export class AddPurchaseComponent implements OnInit {
-  profileForm = new FormGroup({
-    price: new FormControl('', [Validators.required]),
-    store: new FormControl('', [Validators.required]),
-    tag: new FormControl('', [Validators.required]),
-  });
+  profileForm: FormGroup;
   stores: IStore[] = [];
   tags: ITag[] = [];
 
-  constructor(private dataStorageService: DataStorageService,) { }
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredStoreOptions: Observable<string[]>;
+  filteredTagOptions: Observable<string[]>;
+  myControl = new FormControl();
+
+  constructor(private dataStorageService: DataStorageService, private router: Router) { }
 
   ngOnInit() {
     this.stores = this.dataStorageService.getStores();
     this.tags = this.dataStorageService.getTags();
+    const storeControl = new FormControl('', [Validators.required]);
+    const tagControl = new FormControl('', [Validators.required]);
+    this.profileForm = new FormGroup({
+      price: new FormControl('', [Validators.required]),
+      store: storeControl,
+      tag: tagControl,
+    });
+
+    this.filteredStoreOptions = storeControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value!, this.dataStorageService.getStores().map(store => store.name)))
+      );
+
+    this.filteredTagOptions = tagControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value!, this.dataStorageService.getTags().map(tag => tag.name)))
+      );
   }
 
   onSubmit() {
@@ -39,17 +61,19 @@ export class AddPurchaseComponent implements OnInit {
         id: purchaseId,
         date: new Date(),
         price: +values.price!,
-        storeId: store.id,
-        tagId: tag.id
+        storeName: store.name,
+        tagName: tag.name
       };
       console.log(purchase);
 
       this.dataStorageService.savePurchase(purchase);
+      this.router.navigateByUrl('/');
     }
   }
 
-  public noWhitespaceValidator(control: FormControl) {
-    return (control.value || '').trim().length ? null : { 'whitespace': true };
-  }
+  private _filter(value: string, options: string[]): string[] {
+    const filterValue = value.toLowerCase();
 
+    return options.filter(option => option.toLowerCase().includes(filterValue));
+  }
 }
