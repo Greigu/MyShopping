@@ -1,14 +1,16 @@
-.title{
-        margin: auto;
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-        padding-top:40px;
-        padding-left: 0;
-        font-size: 45px;
+.title {
+    // titol centrat amb lletra gran
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    padding-top: 40px;
+    padding-left: 0;
+    font-size: 45px;
 }
 
-.button{
+.button {
+    // botó gran
     margin: auto;
     width: 50%;
     border: 3px solid green;
@@ -20,8 +22,10 @@
     margin-top: 10px;
     background-color: green;
 }
-.center{
-    width:100%;
+
+.center {
+    // contendor per centrar els botons
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -29,6 +33,8 @@
     position: relative;
     margin-top: 400px;
 }
-a{
-    text-decoration: none;    
+
+a {
+    // elimenar la decoració de l'enllaç
+    text-decoration: none;
 }

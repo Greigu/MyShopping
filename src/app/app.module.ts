@@ -12,21 +12,21 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-
+// importem tot el necessari per fer funcional l'app
 
 @NgModule({
-  declarations: [
+  declarations: [ // Components
     AppComponent,
     AddPurchaseComponent,
     HomeComponent,
     PurchaseListComponent,
-    
+
   ],
-  imports: [
+  imports: [ //modules
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('https://eimtcms.eimt.uoc.edu/~greigu/my-shopping/ngsw-worker.js', {
+    ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
@@ -37,7 +37,7 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatInputModule
   ],
-  providers: [
+  providers: [ // services
     { provide: 'LOCAL_STORAGE', useValue: window.localStorage },
     DataStorageService],
   bootstrap: [AppComponent]

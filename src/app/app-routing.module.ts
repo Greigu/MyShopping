@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'add-purchase', component: AddPurchaseComponent},
+  { path: 'add-purchase', component: AddPurchaseComponent}, //rutes per navegar
   { path: 'purchase-list', component: PurchaseListComponent}
 ];
 

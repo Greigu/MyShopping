@@ -1,4 +1,4 @@
-form{
+form{ // contenedor del formulari per estar centrat i ocupar el 80% de l'espai de l'ample
     width: 80%;
     text-align: center;
     margin:auto;
@@ -7,7 +7,7 @@ form{
     flex-direction: column;
 }
 
-button {
+button { // botó per acceptar la compra
     margin: auto;
     width: 50%;
     border: 3px solid green;
@@ -19,12 +19,12 @@ button {
     margin-top: 10px;
     background-color: green;
 }
-button:disabled{
+button:disabled{ // canvi de color del botó per diferenciar quan està desactivat
     color:red;
     background-color: black;
 }
 
-.backButton {
+.backButton { // botó per tornar enrrera
     text-decoration: none;
     background-color: #31B0D5;
     color: black;
@@ -33,7 +33,7 @@ button:disabled{
     background-color: green;
 }
 
-.buttonDiv {
+.buttonDiv { //contenidor per mantenir el botó fixat a baix a la dreta
     position: fixed;
     bottom: 10px;
     right: 5px;

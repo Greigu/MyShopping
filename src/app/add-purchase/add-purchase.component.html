@@ -1,12 +1,16 @@
+<!-- Formularni per insertar dades-->
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
   <mat-form-field class="elementForm">
     <input placeholder="Price" matInput type="number" min="0.01" formControlName="price">
+    <!--input de tipus numero amb un mínim de 0.01-->
   </mat-form-field>
 
   <mat-form-field class="elementForm">
     <input type="text" placeholder="Store" aria-label="Text" matInput formControlName="store" [matAutocomplete]="auto1">
+    <!--input de tipus text amb un autocomplete-->
     <mat-autocomplete #auto1="matAutocomplete">
       <mat-option *ngFor="let option of filteredStoreOptions | async" [value]="option">
+        <!--autocompletar amb la llista de tendes-->
         {{option}}
       </mat-option>
     </mat-autocomplete>
@@ -14,15 +18,18 @@
 
   <mat-form-field class="elementForm">
     <input type="text" placeholder="Tag" aria-label="Text" matInput formControlName="tag" [matAutocomplete]="auto2">
+    <!--input de tipus text amb un autocomplete-->
     <mat-autocomplete #auto2="matAutocomplete">
       <mat-option *ngFor="let option of filteredTagOptions | async" [value]="option">
+        <!--autocompletar amb la llista de categories-->
         {{option}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 
   <button type="submit" [disabled]="!profileForm.valid">Add Purchase</button>
+  <!--Botó desactivat si no hi ha totes les dades-->
 </form>
-<div class="buttonDiv">
-<a class="backButton" routerLink="/">BACK</a>
+<div class="buttonDiv"> <!--botó per tornar enrrera-->
+  <a class="backButton" routerLink="/">BACK</a>
 </div>

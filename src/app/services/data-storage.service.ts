@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ITag, IStore, IPurchase } from '../../shared/models/models';
+import { ITag, IStore, IPurchase } from '../../shared/models/models'; // importem els models 
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -10,9 +10,7 @@ export class DataStorageService {
 
   constructor() { }
 
-  // Tag methods
-
-  saveTag(newTag: ITag) {
+  saveTag(newTag: ITag) { // Guardem una nova categoria si no existeix
     const tags = this.getTags();
     const index = tags.findIndex(tag => tag.name === newTag.name);
     if (index === -1) {
@@ -24,21 +22,21 @@ export class DataStorageService {
     }
   }
 
-  getTags(): ITag[] {
+  getTags(): ITag[] { // obtenim les categories
     const tags = localStorage.getItem(this.tagStorageKey);
     return tags ? JSON.parse(tags) : [];
   }
 
-  deleteTag(id: number) {
+  deleteTag(id: number) { // eliminem una categoria
     const tags = this.getTags().filter((tag) => tag.id !== id);
     localStorage.setItem(this.tagStorageKey, JSON.stringify(tags));
   }
 
-  getNextTagId(): number {
+  getNextTagId(): number { // obtenim el seguent id
     return this.getTags().length + 1;
   }
 
-  // Store methods
+  // Aquests metodes son els mateixos que els anteriors però amb tendes
 
   saveStore(newStore: IStore): IStore {
     const stores = this.getStores();
@@ -67,7 +65,7 @@ export class DataStorageService {
     return this.getStores().length + 1;
   }
 
-  // Purchase methods
+  // El mateix passa amb aquests metodes per compra però en aquest cas si que4 hi poden haber dues compres similars
 
   savePurchase(purchase: IPurchase) {
     const purchases = this.getPurchases();

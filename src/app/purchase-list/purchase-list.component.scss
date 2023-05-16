@@ -1,13 +1,8 @@
 .col {
+    // dividir en dues columnes
     columns: 2;
     margin: 0;
     padding: 5px;
-}
-
-.col2 {
-    columns: 1;
-    margin: auto;
-    width: 30%;
 }
 
 ul {
@@ -27,15 +22,6 @@ li {
 p {
     padding: 0;
     margin: 0;
-}
-
-.colbox {
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-color: transparent;
-    background: transparent;
-    color: transparent;
 }
 
 .title {
@@ -62,6 +48,7 @@ p {
 }
 
 nav {
+    // scroll de la llista de compres per tenir el filtre sembre a mà
     height: 450px;
     overflow: hidden;
     overflow-y: scroll;
@@ -73,6 +60,7 @@ nav ul {
 }
 
 .select {
+    // estil dels selectors de filtre
     width: 100%;
     min-width: 15ch;
     max-width: 30ch;
@@ -80,16 +68,18 @@ nav ul {
     border-radius: 0.25em;
     padding: 0.25em 0.5em;
     font-size: 1.25rem;
-    cursor: pointer;
+    ;
     line-height: 1.1;
     background-color: #fff;
-    
+
 }
-.selectorContainer{
+
+.selectorContainer {
     text-align: center;
 }
 
 .filterButton {
+    // botó per aplicar el filtre
     text-decoration: none;
     font-size: large;
     background-color: #31B0D5;

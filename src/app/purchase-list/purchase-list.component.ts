@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataStorageService } from '../services/data-storage.service';
 import { IPurchase, IStore, ITag } from '../../shared/models/models';
 
@@ -8,30 +8,30 @@ import { IPurchase, IStore, ITag } from '../../shared/models/models';
   styleUrls: ['./purchase-list.component.scss']
 })
 export class PurchaseListComponent {
-  purchases: IPurchase[] = [];
+  purchases: IPurchase[] = []; // creem arrays buits per guardar les dades de compra, tendes i categories
   stores: IStore[] = [];
   tags: ITag[] = [];
   filterStore: string = "";
   filterTag: string = "";
   isFilter = false;
 
-  filteredPurchases: IPurchase[] = [];
+  filteredPurchases: IPurchase[] = []; // array amb les compres filtrades
 
-  constructor(private dataStorageService: DataStorageService) {
+  constructor(private dataStorageService: DataStorageService) { // obtenim les dades del service 
     this.purchases = this.dataStorageService.getPurchases();
     this.stores = this.dataStorageService.getStores();
     this.tags = this.dataStorageService.getTags();
     this.filteredPurchases = this.purchases;
-    
+
   }
 
 
-  aplyFilter(){
+  aplyFilter() { // filtrem les compres segons la tenda i la categoria
     this.filteredPurchases = [];
-    
-    for(let i = 0; i < this.purchases.length; i++){
-      if((this.purchases[i].storeName === this.filterStore || this.filterStore === "") &&
-         (this.purchases[i].tagName === this.filterTag || this.filterTag === "")){
+
+    for (let i = 0; i < this.purchases.length; i++) {
+      if ((this.purchases[i].storeName === this.filterStore || this.filterStore === "") &&
+        (this.purchases[i].tagName === this.filterTag || this.filterTag === "")) {
         this.filteredPurchases.push(this.purchases[i]);
       }
     }

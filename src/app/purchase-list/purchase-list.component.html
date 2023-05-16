@@ -1,31 +1,30 @@
-
-
 <h1 class="title">Purchases</h1>
 <nav>
   <ul class="col">
-  <li *ngFor="let purchase of filteredPurchases">
-    <p>Price: {{ purchase.price.toFixed(2) }}€</p>
-    <p>Store: {{ purchase.storeName }}</p>
-    <p>Tag: {{ purchase.tagName }}</p>
-  </li>
-</ul>
+    <li *ngFor="let purchase of filteredPurchases"> <!-- llista de les compres -->
+      <p>Price: {{ purchase.price.toFixed(2) }}€</p>
+      <p>Store: {{ purchase.storeName }}</p>
+      <p>Tag: {{ purchase.tagName }}</p>
+    </li>
+  </ul>
 </nav>
 
-<div class="selectorContainer">
+<div class="selectorContainer"> <!-- Contenidor dels filtres -->
   <select class="select" placeholder="Store" name="searchStore" [(ngModel)]="filterStore">
-  <option value="" selected>All Stores</option>
-  <option [value]="store.name" *ngFor="let store of stores">{{store.name}}</option>
-</select>
+    <!-- select per filtrar les tendes -->
+    <option value="" selected>All Stores</option>
+    <option [value]="store.name" *ngFor="let store of stores">{{store.name}}</option>
+  </select>
 
-<select class="select" name="searchTag" [(ngModel)]="filterTag">
-  <option value="" selected>All Tags</option>
-  <option [value]="tag.name" *ngFor="let tag of tags">{{tag.name}}</option>
-</select>
-<button class="filterButton" (click)="aplyFilter()">Filter</button>
+  <select class="select" name="searchTag" [(ngModel)]="filterTag"> <!-- select per filtrar les categories -->
+    <option value="" selected>All Tags</option>
+    <option [value]="tag.name" *ngFor="let tag of tags">{{tag.name}}</option>
+  </select>
+  <button class="filterButton" (click)="aplyFilter()">Filter</button> <!-- botó per aplicar el filtre -->
 </div>
 
 
 
 <div class="buttonDiv">
-  <a class="backButton" routerLink="/">BACK</a>
+  <a class="backButton" routerLink="/">BACK</a> <!-- botó per tornar enrrera -->
 </div>
