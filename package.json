@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:prod": "ng build --configuration production",
-    "predeploy": "ng build --configuration production --base-href=/my-shopping/",
+    "predeploy": "ng build --configuration production --base-href=/~greigu/my-shopping/",
     "deploy": "npx gh-pages -d dist/my-shopping"
   },
   "private": true,

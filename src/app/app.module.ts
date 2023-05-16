@@ -26,7 +26,7 @@ import { MatInputModule } from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register('https://eimtcms.eimt.uoc.edu/~greigu/my-shopping/ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
